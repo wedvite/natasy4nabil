@@ -1,0 +1,76 @@
+$rose-primary: #FFD1EA;
+$rose-secondary: #363636;
+
+.bg-rose {
+  background-color: $rose-primary !important;
+  color: $rose-secondary !important;
+}
+
+.bg-image-rose {
+  background-image: url("~assets/frames/rose.png");
+  background-repeat: no-repeat !important;
+}
+
+.bgi-rose,
+.bgt-rose {
+  background-color: $rose-primary !important;
+  color: $rose-secondary !important;
+}
+
+.bgt-rose {
+  background: linear-gradient(0deg, $rose-primary, #fff);
+}
+
+.txt-dark-rose {
+  color: $rose-secondary !important;
+}
+
+.txt-rose {
+  color: $rose-secondary !important;
+}
+
+// Main Section
+.title-rose {
+  font-size: 1.3rem;
+  line-height: 1;
+  margin: 0.5rem auto 0;
+}
+
+.couples-rose {
+  font-size: 3rem;
+  //   margin-bottom: 1rem;
+  line-height: 1.3;
+  & > .amp {
+    line-height: 1;
+    font-size: 2rem;
+  }
+}
+
+.dates-rose {
+  margin-bottom: 1rem;
+
+  & > .date-gregorian {
+    font-size: 1.3rem;
+  }
+
+  & > .date-hijri {
+    font-size: 1.1rem;
+  }
+}
+
+.venue-rose {
+  //   font-weight: 600;
+  font-size: 1.3rem;
+}
+// End Main Section
+
+.footer-rose {
+  background-image: -webkit-radial-gradient(
+    50% 0%,
+    circle closest-corner,
+    transparent 0,
+    transparent 35px,
+    $rose-secondary 36px
+  );
+  color: $rose-primary;
+}

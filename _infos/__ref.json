@@ -1,0 +1,106 @@
+{
+    "theme": "wine",
+    "lang": "en",
+    "groom_or_bride_first": "groom/bride",
+    "section_status": {
+        "main": 1,
+        "invitation": 1,
+        "tentative": 1,
+        "doa": 1,
+        "countdown": 1,
+        "social": 1
+    },
+    "groom": {
+        "nickname": "",
+        "fullname": ""
+    },
+    "bride": {
+        "nickname": "",
+        "fullname": ""
+    },
+    "parents": {
+        "father": {
+            "fullname": "",
+            "nickname": ""
+        },
+        "mother": {
+            "fullname": "",
+            "nickname": ""
+        }
+    },
+    "date": {
+        "greg": "",
+        "hijri": ""
+    },
+    "time": {
+        "from": "",
+        "to": ""
+    },
+    "address": {
+        "general": "",
+        "exact_html": "",
+        "map_embed": "",
+        "gmaps_link": "",
+        "waze_link": ""
+    },
+    "countdown_end": "2019-05-04 12:00 PM",
+    "main_section": {
+        "title": "",
+        "name_type": "nickname/fullname",
+        "text_transform": "is-capitalized"
+    },
+    "invitation_section": {
+        "style": "row/col",
+        "title": "",
+        "text": "",
+        "show_parents": 0,
+        "couple_name_type": "nickname/fullname",
+        "text_transform": "is-capitalized"
+    },
+    "tentative_section": {
+        "style": "row/col",
+        "title": "",
+        "tentatives": [
+            {
+                "time": "",
+                "details": ""
+            }
+        ]
+    },
+    "doa_section": {
+        "text": ""
+    },
+    "social_section": {
+        "ig_tags": "",
+        "fb_page": {
+            "title": "",
+            "link": ""
+        },
+        "images": [
+            {
+                "src": "",
+                "htmlTitle": ""
+            }
+        ]
+    },
+    "contact_section": {
+        "override_icons_color": 1,
+        "contacts": [
+            {
+                "name": "",
+                "rel": "",
+                "tel": 60123456789,
+                "whatsapp": 1,
+                "telegram": ""
+            }
+        ]
+
+    },
+    "ics": {
+        "enabled": 1,
+        "subject": "",
+        "begin": "1/31/2019 10:00 am",
+        "end": "1/31/2019 11:00 am"
+    }
+
+}

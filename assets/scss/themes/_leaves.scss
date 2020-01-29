@@ -1,0 +1,73 @@
+$leaves-primary: #fff;
+$leaves-secondary: #52892f;
+
+.bg-leaves {
+  background-color: $leaves-primary !important;
+  color: $leaves-secondary !important;
+}
+
+.bg-image-leaves {
+  background-image: url("~assets/frames/leaves.png");
+}
+
+.bgi-leaves,
+.bgt-leaves {
+  background-color: $leaves-secondary !important;
+  color: $leaves-primary !important;
+}
+
+.txt-dark-leaves {
+  color: $leaves-secondary !important;
+}
+.txt-leaves {
+  color: $leaves-primary !important;
+}
+
+// Main Section
+.title-leaves {
+  font-size: 1.5rem;
+  //   font-style: italic;
+  //   font-weight: 600;
+  line-height: normal;
+  margin-bottom: 0.5rem;
+}
+
+.couples-leaves {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  & > .amp {
+    line-height: 1;
+    font-size: 2rem;
+  }
+}
+
+.dates-leaves {
+  margin-bottom: 1rem;
+
+  & > .date-gregorian {
+    // font-weight: 600;
+    font-size: 1.3rem;
+  }
+
+  & > .date-hijri {
+    font-size: 1.1rem;
+  }
+}
+
+.venue-leaves {
+  font-size: 1.3rem;
+  //   font-weight: 600;
+}
+// End Main Section
+
+.footer-leaves {
+  background-image: -webkit-radial-gradient(
+    50% 0%,
+    circle closest-corner,
+    transparent 0,
+    transparent 35px,
+    $leaves-secondary 36px
+  );
+  color: $leaves-primary;
+}

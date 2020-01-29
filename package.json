@@ -1,0 +1,38 @@
+{
+  "name": "weddinger",
+  "version": "1.0.0",
+  "description": "Wedding boilerplate",
+  "author": "fadziljusri",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt --hostname 0.0.0.0",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free-brands": "^5.0.13",
+    "@fortawesome/free-solid-svg-icons": "^5.6.3",
+    "@nuxtjs/axios": "^5.0.0",
+    "@nuxtjs/bulma": "^1.2.0",
+    "bulma-carousel": "^3.0.0",
+    "bulma-modal-fx": "^1.1.1",
+    "cross-env": "^5.2.0",
+    "dayjs": "^1.8.16",
+    "firebase": "^5.8.0",
+    "lodash.clonedeep": "^4.5.0",
+    "lodash.merge": "^4.6.2",
+    "lodash.sortby": "^4.7.0",
+    "nuxt": "^2.11.0",
+    "nuxt-fontawesome": "^0.4.0",
+    "vue": "^2.6.11",
+    "vue-good-table": "^2.16.0",
+    "vue-json-tree-view": "^2.1.4"
+  },
+  "devDependencies": {
+    "@nuxtjs/dotenv": "^1.4.1",
+    "node-sass": "^4.13.1",
+    "nodemon": "^1.11.0",
+    "sass-loader": "^7.1.0"
+  }
+}

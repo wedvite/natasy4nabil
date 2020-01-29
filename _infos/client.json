@@ -1,0 +1,96 @@
+{
+    "theme": "baby-blue-floral",
+    "lang": "ms",
+    "fonts": {
+        "primary": "Jim Nightshade",
+        "secondary": "Poppins"
+    },
+    "groom_or_bride_first": "groom",
+    "groom": {
+        "fullname": "Abdul Azim Bin Azry",
+        "nickname": "Azim"
+    },
+    "bride": {
+        "fullname": "Alia Nadira binti Arif Asyraf",
+        "nickname": "Alia"
+    },
+    "parents": {
+        "father": {
+            "fullname": "Hj Mohd Azry Bin Nazmi",
+            "nickname": "Hj Mohd Azry"
+        },
+        "mother": {
+            "fullname": "Hidayatul Ain Binti Nik Shafiq",
+            "nickname": "Ain"
+        }
+    },
+    "date": {
+        "greg": "14 Mac 2022",
+        "hijri": "2 Rejab 1440H"
+    },
+    "time": {
+        "from": "11:30 AM",
+        "to": "4:30 PM"
+    },
+    "address": {
+        "general": "The Curve",
+        "exact_html": "6, Jalan PJU 7/3, Mutiara Damansara, 47800 Petaling Jaya, Selangor",
+        "map_embed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.7604347779384!2d101.60927851456906!3d3.157741453980817!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc4f2b8a436a75%3A0x4902dbd453b4457c!2sThe+Curve!5e0!3m2!1sen!2smy!4v1550287047910\" width=\"100%\" height=\"200\" frameborder=\"0\" style=\"border:0\" allowfullscreen></iframe>",
+        "gmaps_link": "https://goo.gl/maps/JPcpokCTNy92",
+        "waze_link": "https://www.waze.com/ul?ll=3.15773610%2C101.61146720&navigate=yes&zoom=16"
+    },
+    "countdown_end": "2022-03-20 11:30 AM",
+    "tentative_section": {
+        "title": "Tentatif",
+        "style": "col",
+        "tentatives": [
+            {
+                "time": "11:30 AM",
+                "details": "Majlis Bermula"
+            },
+            {
+                "time": "12:30 PM",
+                "details": "Ketibaan Pengantin"
+            },
+            {
+                "time": "4:30 PM",
+                "details": "Majlis Berakhir"
+            }
+        ]
+    },
+    "social_section": {
+        "ig_tags": "GroomXBride",
+        "fb_page": {
+            "title": "Walimatulurus Azim & Alia",
+            "link": "https://www.facebook.com/events/583198235197973/"
+        },
+        "images": [
+            {
+                "src": "./images/sample-1.jpg",
+                "htmlTitle": "Hey sayangku!"
+            },
+            {
+                "src": "./images/sample-1.jpg",
+                "htmlTitle": "Life <span class='has-text-success'>Zzzz</span>"
+            }
+        ]
+    },
+    "contact_section": {
+        "override_icons_color": true,
+        "contacts": [
+            {
+                "name": "Fadzil",
+                "rel": "Developer",
+                "tel": 60106505576,
+                "whatsapp": true,
+                "telegram": "fadziljusri"
+            }
+        ]
+    },
+    "ics": {
+        "enabled": 1,
+        "subject": "Walimatulurus - Azim & Alia",
+        "begin": "1/31/2022 10:00 am",
+        "end": "1/31/2022 11:00 am"
+    }
+}
