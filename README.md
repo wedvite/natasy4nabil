@@ -6,6 +6,7 @@ Development tools.
 ``` bash
 # install dependencies
 $ npm install
+$ npm install firebase -f
 
 # serve with hot reload at localhost:3000
 $ npm run dev

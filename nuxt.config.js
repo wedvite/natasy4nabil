@@ -27,7 +27,7 @@ module.exports = {
       { name: 'author', content: 'Fadzil Jusri' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: `/${cfg.name}/favicon.ico` }
+      { rel: 'icon', type: 'image/x-icon', href: `/favicon.ico` }
     ],
     script: [
       // {src: '~/plugins/ics.deps.min', type: "text/javascript"}

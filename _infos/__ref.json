@@ -50,7 +50,6 @@
         "text_transform": "is-capitalized"
     },
     "invitation_section": {
-        "style": "row/col",
         "title": "",
         "text": "",
         "show_parents": 0,
