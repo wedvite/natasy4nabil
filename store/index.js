@@ -67,7 +67,36 @@ export const actions = {
   getDBInfo({ commit }, doc) {
     commit("SET_DB_INFO", doc);
   },
-  updateRsvp({}, newRsvp) {
+  updateRsvp({ }, newRsvp) {
+    if (newRsvp.details.unix) {
+      fireDb
+        .collection(conf.collection)
+        .doc(conf.doc)
+        .get()
+        .then(function (doc) {
+          let { rsvp = [] } = doc.data() || {};
+          for (let i = 0, N = rsvp.reverse().length; i < N; i++) {
+            if (newRsvp.details.unix == rsvp[i].details.unix) {
+              rsvp[i] = newRsvp;
+              localStorage.setItem(
+                `rsvp_${window.location.href}`,
+                JSON.stringify(newRsvp)
+              );
+              break;
+            }
+          }
+
+          fireDb
+            .collection(conf.collection)
+            .doc(conf.doc)
+            .update({ rsvp });
+
+          // Build doc ref from doc.id
+        });
+
+      return;
+    }
+
     let dt = new Date();
     newRsvp.details.unix = dt.getTime();
     newRsvp.details.formattedDate = formatDate(dt);

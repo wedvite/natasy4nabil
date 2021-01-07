@@ -39,30 +39,30 @@ export default {
     Countdown,
     Social,
     Rsvp,
-    AppFooter: Footer
+    AppFooter: Footer,
   },
   computed: {
     ...mapState({
-      showPage: state => state.showPage,
-      sectionStatus: state => state.info.section_status || {}
-    })
+      showPage: (state) => state.showPage,
+      sectionStatus: (state) => state.info.section_status || {},
+    }),
   },
   async created() {
     let theme = themes.includes(this.$route.query.t)
       ? this.$route.query.t
       : null;
-      
+
     this.$store.dispatch("getInfo", {
       info: data,
       // lang: data.lang
-      overrideTheme: theme || data.theme
+      overrideTheme: theme || data.theme,
     });
   },
   methods: {
     check(s) {
       return s || s === undefined ? true : false;
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -82,6 +82,9 @@ body {
 }
 
 .no-select {
+  outline: 0 !important;
+  // border: none !important;
+  box-shadow: none !important;
   -webkit-touch-callout: none !important;
   -webkit-user-select: none !important;
   -khtml-user-select: none !important;
@@ -105,7 +108,7 @@ a,
 
 .container {
   width: 100%;
-  max-width: 520px;
+  max-width: 520px !important;
   font-family: $primary-font !important;
 }
 
@@ -115,5 +118,4 @@ a,
     border-left: #ddd 1px solid;
   }
 }
-
 </style>

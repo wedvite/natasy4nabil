@@ -37,12 +37,12 @@
           v-if="props.column.field == 'status'"
           class="tag status"
           :class="{
-              'is-success': props.row.status === 'Going', 
-              'is-link': props.row.status === 'Maybe', 
+              'is-success': props.row.status === 'Going',
+              'is-link': props.row.status === 'Maybe',
               'is-warning': props.row.status === 'Not Going'
           }"
         >{{props.row.status}}</span>
-        
+
         <span v-else>{{props.formattedRow[props.column.field]}}</span>
       </template>
     </vue-good-table>
@@ -82,6 +82,7 @@ export default {
           field: "details.name",
           thClass: "has-textcentered name-col",
           tdClass: "has-text-left",
+          width: '200px',
           filterOptions: {
             enabled: true
           }
@@ -91,6 +92,7 @@ export default {
           field: "details.wishes",
           thClass: "has-text-centered wishes-col",
           tdClass: "has-text-left",
+          width: '300px',
           filterOptions: {
             enabled: true
           }
@@ -99,6 +101,7 @@ export default {
           label: "Pax",
           field: "details.pax",
           type: "number",
+          width: '60px',
           thClass: "has-text-centered",
           tdClass: "has-text-centered"
         },
@@ -108,6 +111,7 @@ export default {
           type: "string",
           thClass: "has-text-centered",
           tdClass: "has-text-centered",
+          width: '100px',
           filterOptions: {
             enabled: true,
             placeholder: 'All',
@@ -120,7 +124,8 @@ export default {
           field: "details.formattedDate",
           type: "string",
           thClass: "has-text-centered",
-          tdClass: "has-text-centered"
+          tdClass: "has-text-centered",
+          width: '170px',
           //   dateInputFormat: "epoch",
           //   dateOutputFormat: "MMM Do YY"
         },
