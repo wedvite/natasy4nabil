@@ -45,7 +45,7 @@
             @click.prevent="statusModal = !statusModal"
           >
             <span class="text-confirm is-size-6"
-              >{{ myRsvp.status ? "Update" : "Confirm" }} Attandance</span
+              >{{ myRsvp.status ? "Update" : "Confirm" }} Attendance</span
             >
           </button>
         </div>
