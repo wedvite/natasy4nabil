@@ -101,7 +101,7 @@
               <small v-if="i.details.formattedDate"
                 >@ {{ i.details.formattedDate }}</small
               >
-              <div v-if="i.details.wishes" style="word-break: break-all">
+              <div v-if="i.details.wishes" style="word-break: break-word">
                 {{ i.details.wishes }}
               </div>
             </div>
