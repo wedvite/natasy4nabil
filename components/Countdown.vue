@@ -1,32 +1,44 @@
 <template>
-  <section v-if="endDate" id="countdown-section" class="section has-text-centered">
+  <section
+    v-if="endDate"
+    id="countdown-section"
+    class="section has-text-centered"
+  >
     <div class="main-title" :class="'txt-dark-' + theme">Wedding Countdown</div>
     <div v-if="countEnd" class="tag is-success is-large">
-      <p>End 🙂</p>
+      <p>{{ countdown_section.endText }} 🙂</p>
     </div>
     <nav v-if="!countEnd" class="level is-mobile">
       <div class="level-item has-text-centered">
         <div>
-          <p class="title">{{c.days}}</p>
-          <p class="heading" :class="'txt-dark-' + theme">Days</p>
+          <p class="title">{{ c.days }}</p>
+          <p class="heading" :class="'txt-dark-' + theme">
+            {{ countdown_section.days }}
+          </p>
         </div>
       </div>
       <div class="level-item has-text-centered">
         <div>
-          <p class="title">{{c.hours}}</p>
-          <p class="heading" :class="'txt-dark-' + theme">Hours</p>
+          <p class="title">{{ c.hours }}</p>
+          <p class="heading" :class="'txt-dark-' + theme">
+            {{ countdown_section.hours }}
+          </p>
         </div>
       </div>
       <div class="level-item has-text-centered">
         <div>
-          <p class="title">{{c.minutes}}</p>
-          <p class="heading" :class="'txt-dark-' + theme">Minutes</p>
+          <p class="title">{{ c.minutes }}</p>
+          <p class="heading" :class="'txt-dark-' + theme">
+            {{ countdown_section.minutes }}
+          </p>
         </div>
       </div>
       <div class="level-item has-text-centered">
         <div>
-          <p class="title">{{c.seconds}}</p>
-          <p class="heading" :class="'txt-dark-' + theme">Seconds</p>
+          <p class="title">{{ c.seconds }}</p>
+          <p class="heading" :class="'txt-dark-' + theme">
+            {{ countdown_section.seconds }}
+          </p>
         </div>
       </div>
     </nav>
@@ -42,17 +54,18 @@ export default {
         days: "",
         hours: "",
         minutes: "",
-        seconds: ""
+        seconds: "",
       },
       endDate: "",
-      countEnd: false
+      countEnd: false,
     };
   },
   computed: {
     ...mapState({
-      theme: state => state.info.theme,
-      countdown_end: state => state.info.countdown_end
-    })
+      theme: (state) => state.info.theme,
+      countdown_end: (state) => state.info.countdown_end,
+      countdown_section: (state) => state.info.countdown_section,
+    }),
   },
   created() {
     this.endDate = new Date(this.countdown_end).getTime();
@@ -84,8 +97,8 @@ export default {
         this.countEnd = true;
         return;
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -100,7 +113,8 @@ export default {
 }
 
 p.title,
-p.heading, .tag {
+p.heading,
+.tag {
   font-family: $secondary-font;
 }
 </style>

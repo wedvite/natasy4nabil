@@ -14,22 +14,14 @@
 
     <section class="section">
       <div class="level is-mobile">
-        <div class="level-item has-text-centered">
+        <div
+          v-for="(opt, index) in rsvpOptions"
+          :key="index"
+          class="level-item has-text-centered"
+        >
           <div>
-            <p class="title">{{ countRsvpStatus("Going") }}</p>
-            <p class="heading" :class="'txt-dark-' + theme">Going</p>
-          </div>
-        </div>
-        <div class="level-item has-text-centered">
-          <div>
-            <p class="title">{{ countRsvpStatus("Maybe") }}</p>
-            <p class="heading" :class="'txt-dark-' + theme">Maybe</p>
-          </div>
-        </div>
-        <div class="level-item has-text-centered">
-          <div>
-            <p class="title">{{ countRsvpStatus("Not Going") }}</p>
-            <p class="heading" :class="'txt-dark-' + theme">Not Going</p>
+            <p class="title">{{ countRsvpStatus(opt.value) }}</p>
+            <p class="heading" :class="'txt-dark-' + theme">{{ opt.value }}</p>
           </div>
         </div>
       </div>
@@ -44,9 +36,10 @@
             :class="'bg-' + theme"
             @click.prevent="statusModal = !statusModal"
           >
-            <span class="text-confirm is-size-6"
-              >{{ myRsvp.status ? "Update" : "Confirm" }} Attendance</span
-            >
+            <span class="text-confirm is-size-6">
+              {{ myRsvp.status ? `${rsvp_section.updateRsvpText} ` : "" }}
+              {{ rsvp_section.rsvpText }}
+            </span>
           </button>
         </div>
         <div v-if="myRsvp.status">
@@ -56,15 +49,9 @@
             <div class="control">
               <div class="tags has-addons">
                 <span class="tag is-dark">Status</span>
-                <span
-                  class="tag"
-                  :class="{
-                    'is-success': myRsvp.status === 'Going',
-                    'is-link': myRsvp.status === 'Maybe',
-                    'is-warning': myRsvp.status === 'Not Going',
-                  }"
-                  >{{ myRsvp.status }}</span
-                >
+                <span class="tag" :class="getStatusClass(myRsvp.status)">
+                  {{ myRsvp.status }}
+                </span>
               </div>
             </div>
 
@@ -78,7 +65,7 @@
 
           <article v-if="myRsvp.details.wishes" class="message">
             <div class="message-body">
-              <strong>My message:</strong>
+              <strong>Wishes:</strong>
               {{ myRsvp.details.wishes }}
             </div>
           </article>
@@ -91,7 +78,7 @@
         class="is-size-4 has-text-weight-bold recent-comments"
         :class="'txt-dark-' + theme"
       >
-        <fa icon="comments"></fa>Recent Comments...
+        <fa icon="comments"></fa>Guestbook
       </h1>
       <article class="media" v-for="(i, index) in sortedRsvp" :key="index">
         <div class="media-content">
@@ -110,7 +97,7 @@
       </article>
 
       <div class="buttons is-centered more">
-        <a class="has-text-link pointer" href="./rsvp/">All RSVP...</a>
+        <a class="has-text-link pointer" href="./rsvp/">All RSVP</a>
       </div>
 
       <!-- rsvp status -->
@@ -125,33 +112,15 @@
         <div class="modal-content">
           <div class="box is-size-5" :class="'bgi-' + theme">
             <div
+              v-for="(opt, index) in rsvpOptions"
+              :key="index + 'modal'"
               class="level is-mobile pointer no-select"
-              @click.prevent="ans('Going')"
+              @click.prevent="ans(opt.value)"
             >
               <div class="level-item is-narrow">
-                <fa icon="smile-wink" class="fa fa-2x"></fa>
+                <fa :icon="opt.faIcon" class="fa fa-2x"></fa>
               </div>
-              <div class="level-item">Going</div>
-            </div>
-
-            <div
-              class="level is-mobile pointer no-select"
-              @click.prevent="ans('Maybe')"
-            >
-              <div class="level-item is-narrow">
-                <fa icon="meh" class="fa fa-2x"></fa>
-              </div>
-              <div class="level-item">Maybe</div>
-            </div>
-
-            <div
-              class="level is-mobile pointer no-select"
-              @click.prevent="ans('Not Going')"
-            >
-              <div class="level-item is-narrow">
-                <fa icon="frown" class="fa fa-2x"></fa>
-              </div>
-              <div class="level-item">Not Going</div>
+              <div class="level-item">{{ opt.value }}</div>
             </div>
           </div>
         </div>
@@ -215,7 +184,12 @@
             </div>
 
             <div
-              class="columns is-mobile has-text-centered has-text-wight-bold is-size-4"
+              class="
+                columns
+                is-mobile
+                has-text-centered has-text-wight-bold
+                is-size-4
+              "
             >
               <div class="column pointer no-select" @click.prevent="cancel()">
                 Cancel
@@ -237,6 +211,8 @@
 
 
 <script>
+import { rsvpOptions } from "~/wedvite.config";
+
 import _sortBy from "lodash.sortby";
 import cloneDeep from "lodash.clonedeep";
 import { mapState, mapGetters } from "vuex";
@@ -255,6 +231,7 @@ export default {
       },
       myRsvp: { status: null },
       scrollPos: 0,
+      rsvpOptions,
     };
   },
   computed: {
@@ -262,6 +239,7 @@ export default {
       theme: (state) => state.info.theme,
       dbRsvp: (state) => state.rsvp,
       countdownEnd: (state) => state.info.countdown_end,
+      rsvp_section: (state) => state.info.rsvp_section,
     }),
     ...mapGetters(["countRsvpStatus"]),
     sortedRsvp() {
@@ -310,6 +288,11 @@ export default {
       this.myRsvp = cloneDeep(this.rsvp);
 
       this.$store.dispatch("updateRsvp", this.rsvp);
+    },
+    getStatusClass(status) {
+      return (
+        this.rsvpOptions.find((e) => e.value === status)?.class || "is-light"
+      );
     },
   },
   // watch: {

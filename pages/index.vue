@@ -69,9 +69,6 @@ export default {
 <style lang="scss">
 @import "~assets/scss/var.scss";
 @import url($font-url);
-@import "~assets/scss/themes/index.scss";
-@import "~assets/scss/modal.scss";
-@import "bulma-modal-fx/dist/css/modal-fx.min.css";
 html {
   position: relative;
   min-height: 100%;

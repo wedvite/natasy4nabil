@@ -1,5 +1,12 @@
 // const pkg = require('./package')
-import { cfg } from './wedvite.config.js'
+import { cfg, project, userData } from './wedvite.config.js'
+
+let themeScssFile = 'index.scss'
+if (project !== "demo" && userData?.theme) {
+  themeScssFile = userData.theme === "custom" ? 'custom/index.scss' : `_${userData.theme}.scss`;
+}
+
+console.log(userData?.theme, { themeScssFile });
 
 module.exports = {
   // router: {
@@ -10,9 +17,14 @@ module.exports = {
   },
   server: {
     host: '0.0.0.0', // default: localhost
-    port: '3001'
+    port: process.env.PORT || '3001'
   },
-  mode: 'spa',
+
+  // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
+  ssr: false,
+
+  // Target: https://go.nuxtjs.dev/config-target
+  target: 'static',
 
   /*
   ** Headers of the page
@@ -43,6 +55,9 @@ module.exports = {
   ** Global CSS
   */
   css: [
+    `~assets/scss/themes/${themeScssFile}`,
+    '~assets/scss/modal.scss',
+    'bulma-modal-fx/dist/css/modal-fx.min.css'
   ],
 
   /*
@@ -104,7 +119,6 @@ module.exports = {
         }
       }
     },
-    vendor: [],
     /*
     ** You can extend webpack config here
     */

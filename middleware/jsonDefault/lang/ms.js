@@ -28,6 +28,17 @@ export const INFO_MS = {
     "doa_section": {
         "text": "Ya Allah Ya Rahman Ya Rahim, berkatilah majlis perkahwinan ini. Limpahkanlah baraqah dan rahmat kepada kedua mempelai. Kurniakanlah mereka kelak zuriat yang soleh dan solehah. Kekalkanlah jodoh mereka hingga ke jannah,juga sempurnakanlah agama mereka dengan berkat ikatan ini."
     },
+    "countdown_section": {
+        "days": "hari",
+        "hours": "jam",
+        "minutes": "minit",
+        "seconds": "saat",
+        "endText": "Tamat"
+    },
     "social_section": {},
-    "contact_section": {}
+    "contact_section": {},
+    "rsvp_section": {
+        "updateRsvpText": "Kemaskini",
+        "rsvpText": "RSVP"
+    }
 }

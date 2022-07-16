@@ -11,9 +11,9 @@ export const fireStore = {
 
 export const themes = [
     "baby-blue-floral",
-    "leaves", 
+    "leaves",
     "wine",
-    "vector-pink", 
+    "vector-pink",
     "classic",
     "rose",
     "autumn",
@@ -25,6 +25,11 @@ export const themes = [
     "lavender"
 ];
 
+export const rsvpOptions = [
+    { value: 'Going', class: 'is-success', faIcon: 'smile-wink' },
+    { value: 'Maybe', class: 'is-link', faIcon: 'meh' },
+    { value: 'Not Going', class: 'is-warning', faIcon: 'frown' },
+];
 
 export const userData = require(`./_infos/client.json`);
 

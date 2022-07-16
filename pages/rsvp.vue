@@ -1,25 +1,24 @@
 <template>
   <div class="container">
     <div class="section">
-      <h1 class="title">RSVP <a @click="$router.go(-1)" class="button is-text is-pulled-right is-shadowless" >Back</a></h1>
+      <h1 class="title">
+        RSVP
+        <a
+          @click="$router.go(-1)"
+          class="button is-text is-pulled-right is-shadowless"
+          >Back</a
+        >
+      </h1>
     </div>
     <nav class="level is-mobile">
-      <div class="level-item has-text-centered">
+      <div
+        v-for="(opt, index) in rsvpOptions"
+        :key="index"
+        class="level-item has-text-centered"
+      >
         <div>
-          <p class="heading">Going</p>
-          <p class="title">{{countRsvpStatus("Going")}}</p>
-        </div>
-      </div>
-      <div class="level-item has-text-centered">
-        <div>
-          <p class="heading">Maybe</p>
-          <p class="title">{{countRsvpStatus("Maybe")}}</p>
-        </div>
-      </div>
-      <div class="level-item has-text-centered">
-        <div>
-          <p class="heading">Not Going</p>
-          <p class="title">{{countRsvpStatus("Not Going")}}</p>
+          <p class="heading">{{ opt.value }}</p>
+          <p class="title">{{ countRsvpStatus(opt.value) }}</p>
         </div>
       </div>
     </nav>
@@ -36,21 +35,18 @@
         <span
           v-if="props.column.field == 'status'"
           class="tag status"
-          :class="{
-              'is-success': props.row.status === 'Going',
-              'is-link': props.row.status === 'Maybe',
-              'is-warning': props.row.status === 'Not Going'
-          }"
-        >{{props.row.status}}</span>
+          :class="getStatusClass(props.row.status)"
+          >{{ props.row.status }}</span
+        >
 
-        <span v-else>{{props.formattedRow[props.column.field]}}</span>
+        <span v-else>{{ props.formattedRow[props.column.field] }}</span>
       </template>
     </vue-good-table>
   </div>
 </template>
 
 <script>
-import { userData as data } from "../wedvite.config";
+import { userData as data, rsvpOptions } from "~/wedvite.config";
 
 import { VueGoodTable } from "vue-good-table";
 import "vue-good-table/dist/vue-good-table.css";
@@ -67,14 +63,14 @@ export default {
         prevLabel: "prev",
         rowsPerPageLabel: "Rows per page",
         ofLabel: "of",
-        pageLabel: "page" // for 'pages' mode
+        pageLabel: "page", // for 'pages' mode
       },
       sortOpts: {
         enabled: true,
         initialSortBy: [
           { field: "details.unix", type: "desc" },
-          { field: "details.formattedDate", type: "desc" }
-        ]
+          { field: "details.formattedDate", type: "desc" },
+        ],
       },
       columns: [
         {
@@ -82,28 +78,28 @@ export default {
           field: "details.name",
           thClass: "has-textcentered name-col",
           tdClass: "has-text-left",
-          width: '200px',
+          width: "200px",
           filterOptions: {
-            enabled: true
-          }
+            enabled: true,
+          },
         },
         {
           label: "Wishes",
           field: "details.wishes",
           thClass: "has-text-centered wishes-col",
           tdClass: "has-text-left",
-          width: '300px',
+          width: "300px",
           filterOptions: {
-            enabled: true
-          }
+            enabled: true,
+          },
         },
         {
           label: "Pax",
           field: "details.pax",
           type: "number",
-          width: '60px',
+          width: "60px",
           thClass: "has-text-centered",
-          tdClass: "has-text-centered"
+          tdClass: "has-text-centered",
         },
         {
           label: "Status",
@@ -111,13 +107,13 @@ export default {
           type: "string",
           thClass: "has-text-centered",
           tdClass: "has-text-centered",
-          width: '100px',
+          width: "100px",
           filterOptions: {
             enabled: true,
-            placeholder: 'All',
-            filterDropdownItems: ["Going", "Maybe", "Not Going"],
-            filterFn: this.statusFilter
-          }
+            placeholder: "All",
+            filterDropdownItems: rsvpOptions.map((e) => e.value),
+            filterFn: this.statusFilter,
+          },
         },
         {
           label: "Created At",
@@ -125,7 +121,7 @@ export default {
           type: "string",
           thClass: "has-text-centered",
           tdClass: "has-text-centered",
-          width: '170px',
+          width: "170px",
           //   dateInputFormat: "epoch",
           //   dateOutputFormat: "MMM Do YY"
         },
@@ -133,20 +129,21 @@ export default {
           label: "Timestamp",
           field: "details.unix",
           type: "number",
-          hidden: true
-        }
+          hidden: true,
+        },
       ],
-      rows: []
+      rows: [],
+      rsvpOptions,
     };
   },
   components: {
-    VueGoodTable
+    VueGoodTable,
   },
   computed: {
     ...mapState({
-      dbRsvp: state => state.rsvp
+      dbRsvp: (state) => state.rsvp,
     }),
-    ...mapGetters(["countRsvpStatus"])
+    ...mapGetters(["countRsvpStatus"]),
   },
   async created() {
     // console.log(data);
@@ -161,8 +158,13 @@ export default {
   methods: {
     statusFilter(data, fString) {
       return data === fString;
-    }
-  }
+    },
+    getStatusClass(status) {
+      return (
+        this.rsvpOptions.find((e) => e.value === status)?.class || "is-light"
+      );
+    },
+  },
 };
 </script>
 

@@ -27,5 +27,18 @@ export const INFO_EN = {
     },
     "doa_section": {
         "text": "O Allah, You are the Loving (Al Wadud) and the Merciful (Al Rehman). Please put love and mercy in the hearts of this couple for each other. Bless this couple with children who will be a source of happiness and joy to them and the world. Strengthen the hearts of the bride and groom with faith, and let them increase in their love and commitment to You through their bond."
+    },
+    "countdown_section": {
+        "days": "days",
+        "hours": "hours",
+        "minutes": "minutes",
+        "seconds": "seconds",
+        "endText": "End"
+    },
+    "social_section": {},
+    "contact_section": {},
+    "rsvp_section": {
+        "updateRsvpText": "Update",
+        "rsvpText": "RSVP"
     }
 }
