@@ -97,6 +97,7 @@ module.exports = {
             'faComments',
             'faUpload',
             'faCopy',
+            'faExternalLinkAlt'
           ]
         },
         {

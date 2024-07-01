@@ -11,7 +11,20 @@
       styleClass="vgt-table condensed bordered"
     >
       <template slot="table-row" slot-scope="props">
-        <span v-if="props.column.field == 'action'">
+        <span
+          v-if="props.column.field == 'id'"
+          style="display: flex; align-items: center"
+        >
+          <div>{{ props.row.id }}</div>
+          <a
+            :href="inviteUrl(props.row)"
+            target="_blank"
+            style="margin-left: 0.5rem; line-height: 1"
+          >
+            <fa icon="external-link-alt" style="padding: 3px" />
+          </a>
+        </span>
+        <span v-else-if="props.column.field == 'action'">
           <button
             class="button is-link is-small"
             @click.prevent.stop="openUpdateModal(props.row)"
@@ -50,7 +63,7 @@
             class="pointer"
             style="margin-left: 0.5rem; line-height: 1"
           >
-            <fa icon="copy" />
+            <fa icon="copy" style="padding: 2px" />
           </a>
         </span>
 
@@ -233,6 +246,9 @@ export default {
             });
           }
         });
+    },
+    inviteUrl(payload) {
+      return `${window.location.origin}/guest/${payload.id}`;
     },
     inviteText(payload) {
       const inviteUrl = `${window.location.origin}/guest/${payload.id}`;
