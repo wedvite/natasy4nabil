@@ -23,6 +23,11 @@ $leaves-secondary: #52892f;
   color: $leaves-primary !important;
 }
 
+.guest.available.leaves {
+  background-color: $leaves-secondary !important;
+  color: $leaves-primary !important;
+}
+
 // Main Section
 .title-leaves {
   font-size: 1.5rem;

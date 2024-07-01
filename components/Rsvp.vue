@@ -4,7 +4,7 @@
     <div class="container floating-container">
       <button
         v-show="scrollPos > 50 && !endDate"
-        class="floating-button no-select container"
+        class="floating-button no-select"
         :class="`bg-${theme} text-dark-${theme}`"
         @click.prevent="statusModal = !statusModal"
       >
@@ -19,7 +19,7 @@
           :key="index"
           class="level-item has-text-centered"
         >
-          <div>
+          <div data-aos="flip-down" data-aos-duration="1000">
             <p class="title">{{ countRsvpStatus(opt.value) }}</p>
             <p class="heading" :class="'txt-dark-' + theme">{{ opt.value }}</p>
           </div>
@@ -32,9 +32,11 @@
       >
         <div v-if="!endDate" class="buttons is-centered no-select">
           <button
+            data-aos="zoom-in"
             class="button is-rounded is-large"
             :class="'bg-' + theme"
             @click.prevent="statusModal = !statusModal"
+            style="min-width: 130px"
           >
             <span class="text-confirm is-size-6">
               {{ myRsvp.status ? `${rsvp_section.updateRsvpText} ` : "" }}
@@ -44,6 +46,7 @@
         </div>
         <div v-if="myRsvp.status">
           <div
+            data-aos="zoom-in"
             class="field is-grouped is-grouped-multiline is-grouped-centered"
           >
             <div class="control">
@@ -63,18 +66,23 @@
             </div>
           </div>
 
-          <article v-if="myRsvp.details.wishes" class="message">
+          <article
+            data-aos="zoom-in"
+            v-if="myRsvp.details.wishes"
+            class="message"
+          >
             <div class="message-body">
-              <strong>Wishes:</strong>
+              <strong>Ucapan:</strong>
               {{ myRsvp.details.wishes }}
             </div>
           </article>
         </div>
       </div>
 
-      <!-- Recent comments -->
+      <!-- Guestbook -->
       <h1
-        v-show="this.dbRsvp.length"
+        data-aos="fade-right"
+        v-show="dbRsvp.length"
         class="is-size-4 has-text-weight-bold recent-comments"
         :class="'txt-dark-' + theme"
       >
@@ -83,12 +91,12 @@
       <article class="media" v-for="(i, index) in sortedRsvp" :key="index">
         <div class="media-content">
           <div class="content is-marginless">
-            <div>
+            <div data-aos="fade-right">
               <strong>{{ i.details.name }}</strong>
-              <small v-if="i.details.formattedDate"
-                >@ {{ i.details.formattedDate }}</small
-              >
-              <div v-if="i.details.wishes" style="word-break: break-word">
+              <small v-if="i.details.formattedDate">
+                @ {{ i.details.formattedDate }}
+              </small>
+              <div v-if="i.details.wishes" style="word-wrap: break-word">
                 {{ i.details.wishes }}
               </div>
             </div>
@@ -96,8 +104,13 @@
         </div>
       </article>
 
-      <div class="buttons is-centered more">
-        <a class="has-text-link pointer" href="./rsvp/">All RSVP</a>
+      <div
+        data-aos="zoom-in"
+        data-aos-offset="100"
+        v-if="dbRsvp.length"
+        class="buttons is-centered more"
+      >
+        <a class="has-text-link pointer no-select" href="/rsvp">Semua RSVP</a>
       </div>
 
       <!-- rsvp status -->
@@ -126,7 +139,7 @@
         </div>
       </div>
 
-      <!-- rsvp details -->
+      <!-- rsvp details modal -->
       <div
         class="modal modal-fx-slideBottom modal-pos-bottom"
         :class="{ 'is-active': detailsModal }"
@@ -141,27 +154,71 @@
             <div class="columns is-mobile">
               <div class="column">
                 <div class="field">
-                  <label class="label">Name</label>
+                  <label class="label">Nama</label>
                   <div class="control">
                     <input
                       class="input is-rounded"
                       type="text"
                       v-model="rsvp.details.name"
-                      placeholder="Name"
+                      placeholder="Nama"
                     />
                   </div>
                 </div>
               </div>
-              <div v-show="rsvp.status !== 'Not Going'" class="column is-4">
+              <div v-show="!getStatusHidePax(rsvp.status)" class="column is-4">
                 <div class="field">
                   <label class="label">Pax</label>
                   <div class="control">
-                    <input
+                    <div
+                      class="dropdown"
+                      :class="{ 'is-active': showPaxDropdown }"
+                      style="width: 100%"
+                    >
+                      <div class="dropdown-trigger" style="width: 100%">
+                        <button
+                          class="button is-rounded"
+                          aria-haspopup="true"
+                          aria-controls="dropdown-menu"
+                          style="width: 100%; justify-content: start"
+                          @click="showPaxDropdown = true"
+                        >
+                          <span>{{ rsvp.details.pax }}</span>
+                          <span class="icon is-small">
+                            <i class="fas fa-angle-down" aria-hidden="true"></i>
+                          </span>
+                        </button>
+                      </div>
+                      <div
+                        class="dropdown-menu"
+                        id="dropdown-menu"
+                        role="menu"
+                        style="min-width: 100%"
+                      >
+                        <div
+                          class="dropdown-content"
+                          style="max-height: 150px; overflow: hidden auto"
+                        >
+                          <a
+                            v-for="i in rsvpPax"
+                            :key="i"
+                            class="dropdown-item"
+                            :class="{ 'is-active': i == rsvp.details.pax }"
+                            @click="
+                              rsvp.details.pax = i;
+                              showPaxDropdown = false;
+                            "
+                          >
+                            {{ i }}
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- <input
                       class="input is-rounded"
                       type="number"
                       v-model="rsvp.details.pax"
                       placeholder="Pax"
-                    />
+                    /> -->
                   </div>
                 </div>
               </div>
@@ -170,13 +227,13 @@
             <div class="columns">
               <div class="column">
                 <div class="field">
-                  <label class="label">Wishes!</label>
+                  <label class="label">Ucapan!</label>
                   <div class="control">
                     <input
                       class="input is-rounded"
                       type="text"
                       v-model="rsvp.details.wishes"
-                      placeholder="Congrats!"
+                      placeholder="Tahniah!"
                     />
                   </div>
                 </div>
@@ -211,16 +268,16 @@
 
 
 <script>
-import { rsvpOptions } from "~/wedvite.config";
+import { rsvpOptions, rsvpMaxPax } from "~/wedvite.config";
 
-import _sortBy from "lodash.sortby";
-import cloneDeep from "lodash.clonedeep";
+import { cloneDeep, sortBy } from "lodash";
 import { mapState, mapGetters } from "vuex";
 export default {
   data() {
     return {
       statusModal: false,
       detailsModal: false,
+      showPaxDropdown: false,
       rsvp: {
         status: "",
         details: {
@@ -232,6 +289,7 @@ export default {
       myRsvp: { status: null },
       scrollPos: 0,
       rsvpOptions,
+      rsvpMaxPax,
     };
   },
   computed: {
@@ -240,16 +298,20 @@ export default {
       dbRsvp: (state) => state.rsvp,
       countdownEnd: (state) => state.info.countdown_end,
       rsvp_section: (state) => state.info.rsvp_section,
+      currentGuest: (state) => state.protected.currentGuest,
     }),
     ...mapGetters(["countRsvpStatus"]),
     sortedRsvp() {
-      return _sortBy(this.dbRsvp, "details.unix").reverse().slice(0, 10);
+      return sortBy(this.dbRsvp, "details.unix").reverse().slice(0, 10);
     },
     isValid() {
       return Boolean(this.rsvp.details.name && this.rsvp.details.pax > 0);
     },
     endDate() {
       return new Date() > new Date(this.countdownEnd);
+    },
+    rsvpPax() {
+      return this.currentGuest?.pax || this.rsvpMaxPax;
     },
   },
   created() {
@@ -270,7 +332,7 @@ export default {
       this.scrollPos = window.scrollY;
     },
     ans(status) {
-      if (status === "Not Going") {
+      if (this.getStatusHidePax(status)) {
         this.rsvp.details.pax = 1;
       }
 
@@ -294,20 +356,15 @@ export default {
         this.rsvpOptions.find((e) => e.value === status)?.class || "is-light"
       );
     },
+    getStatusHidePax(status) {
+      return !!this.rsvpOptions.find((e) => e.value === status)?.hidePax;
+    },
   },
-  // watch: {
-  //   statusModal(val) {
-  //     if (!val)
-  //       this.rsvp = {
-  //         status: "",
-  //         details: {
-  //           name: "",
-  //           pax: 1,
-  //           wishes: "",
-  //         },
-  //       };
-  //   },
-  // },
+  watch: {
+    statusModal(val) {
+      if (!val) this.showPaxDropdown = false;
+    },
+  },
 };
 </script>
 
@@ -316,14 +373,13 @@ export default {
 @import "~assets/scss/var.scss";
 
 .section * {
-  font-family: $secondary-font !important;
+  font-family: $primary-font !important;
 }
 
 section,
 .text-confirm,
 .label,
-.title,
-.modal-content {
+.title {
   color: unset !important;
 }
 

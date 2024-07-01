@@ -71,6 +71,7 @@
     },
     "social_section": {
         "ig_tags": "",
+        "carouselAutoplay": true,
         "fb_page": {
             "title": "",
             "link": ""

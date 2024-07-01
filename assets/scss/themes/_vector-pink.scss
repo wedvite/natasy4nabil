@@ -21,6 +21,11 @@ $vector-pink-secondary: #323232;
   color: $vector-pink-secondary !important;
 }
 
+.guest.available.vector-pink {
+  background-color: $vector-pink-secondary !important;
+  color: $vector-pink-primary !important;
+}
+
 // Main Section
 .title-vector-pink {
   font-size: 1.5rem;

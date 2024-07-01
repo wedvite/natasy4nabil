@@ -30,6 +30,11 @@ $autumn-secondary: #e26f03;
   color: $autumn-secondary !important;
 }
 
+.guest.available.autumn {
+  background-color: $autumn-secondary !important;
+  color: $autumn-primary !important;
+}
+
 // Main Section
 .title-autumn {
   font-size: 1.3rem;

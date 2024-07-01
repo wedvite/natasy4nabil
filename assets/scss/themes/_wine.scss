@@ -20,6 +20,11 @@ $wine-secondary: #edc844;
   color: $wine-primary !important;
 }
 
+.guest.available.wine {
+  background-color: $wine-secondary !important;
+  color: $wine-primary !important;
+}
+
 // Main Section
 .title-wine {
   font-size: 1.5rem;

@@ -29,6 +29,11 @@ $brush-secondary: #546FA8 ;
   color: $brush-secondary !important;
 }
 
+.guest.available.brush {
+  background-color: $brush-secondary !important;
+  color: $brush-primary !important;
+}
+
 // Main Section
 .title-brush {
   font-size: 1.3rem;

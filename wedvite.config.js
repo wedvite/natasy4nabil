@@ -1,39 +1,62 @@
 
 // Demo
-export const project = 'demo';
-export const projectTitle = 'Azim & Alia';
+export const project = "demo";
+export const wishlistDoc = "demo";
+export const projectTitle = "Azim & Alia";
 
+export const allowedEmails = [
+  "fadziljusri@gmail.com",
+  // 
+]
 
 export const fireStore = {
-    collection: "infos",
-    doc: project === "demo" ? "_demo" : project
+  collection: "infos",
+  doc: project === "demo" ? "_demo" : project
+};
+
+export const fireStoreProtected = {
+  collection: "infos_protected",
+  doc: project === "demo" ? "_demo" : project
+}
+
+export const fireStoreWishlist = {
+  collection: "wishlist",
+  doc: project === "demo" ? "_demo" : wishlistDoc
 };
 
 export const themes = [
-    "baby-blue-floral",
-    "leaves",
-    "wine",
-    "vector-pink",
-    "classic",
-    "rose",
-    "autumn",
-    "tropical",
-    "flora",
-    "brush",
-    "blush",
-    "elegant",
-    "lavender"
+  "baby-blue-floral",
+  "leaves",
+  "wine",
+  "vector-pink",
+  "classic",
+  "rose",
+  "autumn",
+  "tropical",
+  "flora",
+  "brush",
+  "blush",
+  "elegant",
+  "lavender"
 ];
 
 export const rsvpOptions = [
-    { value: 'Going', class: 'is-success', faIcon: 'smile-wink' },
-    { value: 'Maybe', class: 'is-link', faIcon: 'meh' },
-    { value: 'Not Going', class: 'is-warning', faIcon: 'frown' },
+  { value: 'Hadir', class: 'is-success', faIcon: 'smile-wink' },
+  // { value: 'Maybe', class: 'is-link', faIcon: 'meh' },
+  { value: 'Tidak Hadir', class: 'is-warning', faIcon: 'frown', hidePax: true },
 ];
+
+export const rsvpMaxPax = 2;
+
+export const metaOgImage = [
+  // Comment below if needed
+  { property: 'og:image', content: '/images/sample-1.jpg' },
+  { property: 'og:image:secure_url', content: '/images/sample-1.jpg' }
+]
 
 export const userData = require(`./_infos/client.json`);
 
 export const cfg = {
-    name: project,
-    title: "Wedvite - " + projectTitle,
+  name: project,
+  title: "Wedvite - " + projectTitle,
 }

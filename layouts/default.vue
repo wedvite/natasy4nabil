@@ -1,8 +1,22 @@
 <template>
   <div>
-      <nuxt/>
+    <nuxt />
   </div>
 </template>
+
+<script>
+export default {
+  mounted() {
+    this.$nextTick(function () {
+      try {
+        AOS.init({ duration: 600, offset: 160 });
+      } catch (error) {
+        console.error(error);
+      }
+    });
+  },
+};
+</script>
 
 <style>
 html {
@@ -15,6 +29,8 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+  position: relative;
+  min-height: 100%;
 }
 
 *,
@@ -22,5 +38,10 @@ html {
 *:after {
   box-sizing: border-box;
   margin: 0;
+}
+
+body {
+  font-size: 1rem !important;
+  font-weight: normal !important;
 }
 </style>

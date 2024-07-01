@@ -2,9 +2,15 @@
 /*
 Default Font 
 */
-$font-url: "https://fonts.googleapis.com/css?family=Poppins:300|Bilbo+Swash+Caps|Nothing+You+Could+Do";
+@font-face {
+    font-family: 'Omnes';
+    src: local('Omnes'),
+        url(~assets/fonts/Omnes.ttf) format('truetype');
+}
+$font-url: 'https://fonts.googleapis.com/css?family=Poppins:wght@500|Nothing+You+Could+Do&display=swap';
 
-$primary-font: "Nothing You Could Do", cursive;
-$secondary-font: "Poppins", sans-serif;
-$countdown-font: "Bilbo Swash Caps", cursive;
-// $countdown-font: "Alex Brush", cursive;
+$cover-font: 'Nothing You Could Do';
+$primary-font: 'Omnes', sans-serif;
+$secondary-font: 'Poppins', sans-serif;
+$countdown-font: 'Nothing You Could Do';
+// $countdown-font: 'Alex Brush', cursive;

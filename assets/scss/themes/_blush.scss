@@ -30,6 +30,11 @@ $blush-secondary: #220401 ;
   color: $blush-secondary !important;
 }
 
+.guest.available.blush {
+  background-color: $blush-secondary !important;
+  color: $blush-primary !important;
+}
+
 // Main Section
 .title-blush {
   font-size: 1.3rem;

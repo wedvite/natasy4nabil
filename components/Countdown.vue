@@ -4,21 +4,25 @@
     id="countdown-section"
     class="section has-text-centered"
   >
-    <div class="main-title" :class="'txt-dark-' + theme">Wedding Countdown</div>
+    <div data-aos="zoom-in" class="main-title" :class="'txt-dark-' + theme">
+      Countdown
+    </div>
     <div v-if="countEnd" class="tag is-success is-large">
       <p>{{ countdown_section.endText }} 🙂</p>
     </div>
     <nav v-if="!countEnd" class="level is-mobile">
       <div class="level-item has-text-centered">
-        <div>
-          <p class="title">{{ c.days }}</p>
+        <div data-aos="flip-down" data-aos-duration="1000">
+          <p class="title">
+            {{ c.days }}
+          </p>
           <p class="heading" :class="'txt-dark-' + theme">
             {{ countdown_section.days }}
           </p>
         </div>
       </div>
       <div class="level-item has-text-centered">
-        <div>
+        <div data-aos="flip-down" data-aos-duration="1000">
           <p class="title">{{ c.hours }}</p>
           <p class="heading" :class="'txt-dark-' + theme">
             {{ countdown_section.hours }}
@@ -26,7 +30,7 @@
         </div>
       </div>
       <div class="level-item has-text-centered">
-        <div>
+        <div data-aos="flip-down" data-aos-duration="1000">
           <p class="title">{{ c.minutes }}</p>
           <p class="heading" :class="'txt-dark-' + theme">
             {{ countdown_section.minutes }}
@@ -34,7 +38,7 @@
         </div>
       </div>
       <div class="level-item has-text-centered">
-        <div>
+        <div data-aos="flip-down" data-aos-duration="1000">
           <p class="title">{{ c.seconds }}</p>
           <p class="heading" :class="'txt-dark-' + theme">
             {{ countdown_section.seconds }}
@@ -68,7 +72,7 @@ export default {
     }),
   },
   created() {
-    this.endDate = new Date(this.countdown_end).getTime();
+    this.endDate = new Date(this.countdown_end.replace(/-/g, "/")).getTime();
     if (isNaN(this.endDate)) {
       return;
     }
@@ -115,7 +119,7 @@ export default {
 p.title,
 p.heading,
 .tag {
-  font-family: $secondary-font;
+  font-family: $primary-font;
 }
 </style>
 

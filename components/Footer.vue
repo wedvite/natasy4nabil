@@ -2,20 +2,28 @@
   <div v-show="scrollPos > 50" id="footer" class="container">
     <div :class="'footer-' + theme">
       <footer class="card-footer no-select">
-        <span class="card-footer-item" @click.prevent="contactModal = !contactModal">
+        <span
+          class="card-footer-item"
+          @click.prevent="contactModal = !contactModal"
+        >
           <div class="level">
             <span class="level-item">
-              <fa :icon="['fas', 'address-book']" class="icon fa-x"></fa>Contact
+              <fa :icon="['fas', 'address-book']" class="icon fa-x"></fa>
+              <span style="margin-top: 2px">Hubungi</span>
             </span>
           </div>
         </span>
         <span class="map-icon" @click.prevent="locationModal = !locationModal">
           <fa icon="map-marked-alt"></fa>
         </span>
-        <span class="card-footer-item" @click.prevent="calendarModal = !calendarModal">
+        <span
+          class="card-footer-item"
+          @click.prevent="calendarModal = !calendarModal"
+        >
           <div class="level">
             <div class="level-item">
-              <fa icon="calendar-alt" class="icon fa-1x"></fa>Calendar
+              <fa icon="calendar-alt" class="icon fa-1x"></fa>
+              <span style="margin-top: 2px">Kalendar</span>
             </div>
           </div>
         </span>
@@ -24,9 +32,12 @@
       <!-- contact modal -->
       <div
         class="modal modal-fx-slideBottom modal-pos-bottom"
-        :class="{'is-active' : contactModal}"
+        :class="{ 'is-active': contactModal }"
       >
-        <div class="modal-background" @click.prevent="contactModal = !contactModal"></div>
+        <div
+          class="modal-background"
+          @click.prevent="contactModal = !contactModal"
+        ></div>
         <div class="modal-content">
           <div class="box" :class="'bgi-' + theme">
             <div
@@ -35,11 +46,12 @@
               class="level is-mobile contact-level"
             >
               <div class="level-item is-narrow is-capitalized">
-                {{cont.name}}
+                {{ cont.name }}
                 <span
                   v-if="cont.rel"
                   class="relay has-text-weight-light is-size-7"
-                >({{cont.rel}})</span>
+                  >({{ cont.rel }})</span
+                >
               </div>
               <div class="level-right no-select">
                 <div class="level-item">
@@ -51,7 +63,7 @@
                     <fa
                       :icon="['fab', 'whatsapp']"
                       class="contact-icon fa-2x"
-                      :class="{'whatsapp': !c.override_icons_color}"
+                      :class="{ whatsapp: !c.override_icons_color }"
                     ></fa>
                   </a>
 
@@ -63,10 +75,13 @@
                     <fa
                       :icon="['fab', 'telegram-plane']"
                       class="contact-icon fa-2x"
-                      :class="{'telegram': !c.override_icons_color}"
+                      :class="{ telegram: !c.override_icons_color }"
                     ></fa>
                   </a>
-                  <a :href="'tel:+' + cont.tel" @click="contactModal = !contactModal">
+                  <a
+                    :href="'tel:+' + cont.tel"
+                    @click="contactModal = !contactModal"
+                  >
                     <fa icon="phone-square" class="contact-icon fa-2x"></fa>
                   </a>
                 </div>
@@ -79,26 +94,40 @@
       <!-- calendar modal -->
       <div
         class="modal modal-fx-slideBottom modal-pos-bottom"
-        :class="{'is-active' : calendarModal}"
+        :class="{ 'is-active': calendarModal }"
       >
-        <div class="modal-background" @click.prevent="calendarModal = !calendarModal"></div>
+        <div
+          class="modal-background"
+          @click.prevent="calendarModal = !calendarModal"
+        ></div>
         <div class="modal-content has-text-centered">
           <div class="box" :class="'bgi-' + theme">
             <div class="date is-capitalized">
               <span class="icon">
                 <fa icon="calendar-check"></fa>
               </span>
-              {{date.greg}}
-              <span v-if="day">{{day}}</span>
+              {{ date.greg }}
+              <span v-if="day">{{ day }}</span>
             </div>
-            <div class="time is-uppercase">{{time.from}} - {{time.to}}</div>
+            <div class="time is-uppercase">{{ time.from }} - {{ time.to }}</div>
 
-            <footer v-if="ics.enabled" class="card-footer has-text-weight-bold no-select">
-              <a @click="downloadCal()" class="card-footer-item">
+            <footer
+              v-if="ics.enabled && icsUrl"
+              class="card-footer has-text-weight-bold no-select"
+            >
+              <a
+                :download="icsFilename"
+                :href="icsUrl"
+                class="card-footer-item"
+              >
                 <span class="loc-icon">
-                  <img src="~assets/icons/gcal.png" width="35" alt="Add to Google Calendar" />
+                  <img
+                    src="~assets/icons/gcal.png"
+                    width="35"
+                    alt="Add to Google Calendar"
+                  />
                 </span>
-                Add to Calendar
+                Simpan dalam Kalendar
               </a>
             </footer>
           </div>
@@ -108,13 +137,18 @@
       <!-- location modal -->
       <div
         class="modal modal-fx-slideBottom modal-pos-bottom"
-        :class="{'is-active' : locationModal}"
+        :class="{ 'is-active': locationModal }"
       >
-        <div class="modal-background" @click.prevent="locationModal = !locationModal"></div>
+        <div
+          class="modal-background"
+          @click.prevent="locationModal = !locationModal"
+        ></div>
         <div class="modal-content">
           <div class="box is-paddingless" :class="'bgi-' + theme">
             <header class="card-header">
-              <p class="card-header-title is-size-5" :class="'txt-' + theme">{{stripAddr}}</p>
+              <p class="card-header-title is-size-5" :class="'txt-' + theme">
+                {{ stripAddr }}
+              </p>
             </header>
             <div class="content is-marginless">
               <span class v-html="address.map_embed"></span>
@@ -127,9 +161,13 @@
                 class="card-footer-item"
               >
                 <span class="loc-icon">
-                  <img src="~assets/icons/gmaps.png" width="35" alt="Google Maps icon" />
+                  <img
+                    src="~assets/icons/gmaps.png"
+                    width="35"
+                    alt="Google Maps icon"
+                  />
                 </span>
-                GMaps
+                Maps
               </a>
               <a
                 :href="address.waze_link"
@@ -138,8 +176,13 @@
                 class="card-footer-item"
               >
                 <span class="loc-icon">
-                  <img src="~assets/icons/waze.png" width="35" alt="Waze icon" />
-                </span> Waze
+                  <img
+                    src="~assets/icons/waze.png"
+                    width="35"
+                    alt="Waze icon"
+                  />
+                </span>
+                Waze
               </a>
             </footer>
           </div>
@@ -150,10 +193,10 @@
 </template>
 
 <script>
-import dayjs from "dayjs";
-import ics from "~/plugins/ics";
-import { projectTitle } from "~/wedvite.config";
-import cloneDeep from "lodash.clonedeep";
+// import dayjs from "dayjs";
+
+const ics = require("ics");
+import { cloneDeep, snakeCase } from "lodash";
 
 import { mapState } from "vuex";
 export default {
@@ -163,25 +206,55 @@ export default {
       calendarModal: false,
       locationModal: false,
       scrollPos: 0,
-      cal: ics()
+      icsUrl: "",
+      // cal: ics(),
     };
   },
   computed: {
     ...mapState({
-      theme: state => state.info.theme,
-      c: state => state.info.contact_section,
-      day: state => state.info.day,
-      date: state => state.info.date,
-      time: state => state.info.time,
-      address: state => state.info.address,
-      ics: state => state.info.ics
+      theme: (state) => state.info.theme,
+      c: (state) => state.info.contact_section,
+      day: (state) => state.info.day,
+      date: (state) => state.info.date,
+      time: (state) => state.info.time,
+      address: (state) => state.info.address,
+      ics: (state) => state.info.ics,
     }),
-    stripAddr: function() {
+    stripAddr: function () {
       return this.address.general.replace(/<(?:.|\n)*?>/gm, "");
-    }
+    },
+    icsFilename() {
+      const { subject } = cloneDeep(this.ics);
+      return `${`${snakeCase(subject || "wedvite")}_${Date.now()}`}.ics`;
+    },
   },
   created() {
     window.addEventListener("scroll", this.handleScroll);
+
+    const { subject, start, duration } = cloneDeep(this.ics);
+    const location = this.stripAddr;
+
+    ics.createEvent(
+      {
+        title: subject,
+        status: "CONFIRMED",
+        start,
+        duration,
+        location,
+      },
+      (error, value) => {
+        if (error) {
+          console.log(error);
+        }
+
+        const blob = new Blob([value], {
+          type: "text/calendar;charset=utf-8",
+        });
+
+        const icsUrl = URL.createObjectURL(blob);
+        this.icsUrl = icsUrl;
+      }
+    );
   },
   destroyed() {
     window.removeEventListener("scroll", this.handleScroll);
@@ -190,40 +263,7 @@ export default {
     handleScroll() {
       this.scrollPos = window.scrollY;
     },
-    downloadCal() {
-      let { subject, begin, end } = cloneDeep(this.ics),
-        location = this.address.general;
-
-      this.cal.addEvent(subject, "", location, begin, end);
-      this.cal.download('wedvite')
-    }
-    // addToGcal() {
-    //   let { text, from, to, location } = this.gcal;
-    //   let params = {
-    //     text,
-    //     dates: `${dayjs(from).format("YYYYMMDDThhmmss")}/${dayjs(to).format(
-    //       "YYYYMMDDThhmmss"
-    //     )}`,
-    //     details: "",
-    //     location,
-    //     sf: true,
-    //     output: "xml",
-    //     pli: 1
-    //   };
-
-    //   // console.log(params);
-    //   // return;
-    //   let paramsText = "";
-    //   Object.entries(params).forEach(e => {
-    //     paramsText +=
-    //       e[1] !== undefined ? `${e[0]}=${encodeURIComponent(e[1])}&` : "";
-    //   });
-    //   // let url = "https://calendar.google.com/calendar/r/eventedit?text=+Event+Title&dates=20190901T113000%2F20190902T163000&details=Details&location=Kidocode&sf=true&output=xml&pli=1";
-    //   let url = `https://calendar.google.com/calendar/r/eventedit?${paramsText}`;
-    //   let win = window.open(url, "_blank");
-    //   win.focus();
-    // }
-  }
+  },
 };
 </script>
 
@@ -232,7 +272,7 @@ export default {
 @import "~assets/scss/var.scss";
 
 #footer * {
-  font-family: $secondary-font !important;
+  font-family: $primary-font !important;
 }
 #footer {
   position: fixed;

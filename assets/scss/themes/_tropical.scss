@@ -27,8 +27,9 @@ $tropical-tertiary: #E85399;
   color: $tropical-secondary !important;
 }
 
-.txt-tropical {
-  color: $tropical-secondary !important;
+.guest.available.tropical {
+  background-color: $tropical-secondary !important;
+  color: $tropical-primary !important;
 }
 
 // Main Section

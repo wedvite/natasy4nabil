@@ -25,6 +25,11 @@ $classic-primary: #d3e7e6;
   color: $classic-secondary !important;
 }
 
+.guest.available.classic {
+  background-color: $classic-secondary !important;
+  color: $classic-primary !important;
+}
+
 // Main Section
 .title-classic {
   font-size: 1.5rem;

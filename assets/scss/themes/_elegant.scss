@@ -20,8 +20,9 @@ $elegant-secondary: #FFD700;
   color: $elegant-primary !important;
 }
 
-.guest.available {
-  color: $elegant-secondary !important;
+.guest.available.elegant {
+  background-color: $elegant-secondary !important;
+  color: $elegant-primary !important;
 }
 
 // Main Section

@@ -29,6 +29,11 @@ $flora-secondary: #363636;
   color: $flora-secondary !important;
 }
 
+.guest.available.flora {
+  background-color: $flora-secondary !important;
+  color: $flora-primary !important;
+}
+
 // Main Section
 .title-flora {
   font-size: 1.3rem;

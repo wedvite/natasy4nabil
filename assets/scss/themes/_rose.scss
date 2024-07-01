@@ -29,6 +29,11 @@ $rose-secondary: #363636;
   color: $rose-secondary !important;
 }
 
+.guest.available.rose {
+  background-color: $rose-secondary !important;
+  color: $rose-primary !important;
+}
+
 // Main Section
 .title-rose {
   font-size: 1.3rem;

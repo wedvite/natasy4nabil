@@ -24,6 +24,11 @@ $lavender-secondary: #443f93;
   color: $lavender-primary !important;
 }
 
+.guest.available.lavender {
+  background-color: $lavender-secondary !important;
+  color: $lavender-primary !important;
+}
+
 // Main Section
 .title-lavender {
   font-size: 1.5rem;

@@ -1,16 +1,17 @@
 <template>
-  <section id="wedvite" class="container" v-if="showPage">
-    <!-- <keep-alive> -->
-    <main-content v-if="check(sectionStatus.main)"></main-content>
-    <invitation v-if="check(sectionStatus.invitation)"></invitation>
-    <tentative v-if="check(sectionStatus.tentative)"></tentative>
-    <doa v-if="check(sectionStatus.doa)"></doa>
-    <countdown v-if="check(sectionStatus.countdown)"></countdown>
-    <social v-if="check(sectionStatus.social)"></social>
-    <rsvp v-if="check(sectionStatus.rsvp)"></rsvp>
-    <app-footer></app-footer>
-    <!-- </keep-alive> -->
-  </section>
+	<section id="wedvite" class="container" v-if="showPage">
+		<!-- <keep-alive> -->
+		<main-content v-if="check(sectionStatus.main)" />
+		<invitation v-if="check(sectionStatus.invitation)" />
+		<tentative v-if="check(sectionStatus.tentative)" />
+		<doa v-if="check(sectionStatus.doa)"></doa>
+		<countdown v-if="check(sectionStatus.countdown)" />
+		<social v-if="check(sectionStatus.social)" />
+		<wishlist v-if="check(sectionStatus.wishlist)" />
+		<rsvp v-if="check(sectionStatus.rsvp)" />
+		<app-footer></app-footer>
+		<!-- </keep-alive> -->
+	</section>
 </template>
 
 <script>
@@ -23,96 +24,75 @@ import Tentative from "~/components/Tentative";
 import Doa from "~/components/Doa";
 import Countdown from "~/components/Countdown";
 import Social from "~/components/Social";
+import Wishlist from "~/components/Wishlist";
 import Rsvp from "~/components/Rsvp";
 import Footer from "~/components/Footer";
 import { mapState } from "vuex";
 
 export default {
-  // asyncData({ store }) {
-  //   return store.dispatch("getInfo");
-  // },
-  components: {
-    MainContent,
-    Invitation,
-    Tentative,
-    Doa,
-    Countdown,
-    Social,
-    Rsvp,
-    AppFooter: Footer,
-  },
-  computed: {
-    ...mapState({
-      showPage: (state) => state.showPage,
-      sectionStatus: (state) => state.info.section_status || {},
-    }),
-  },
-  async created() {
-    let theme = themes.includes(this.$route.query.t)
-      ? this.$route.query.t
-      : null;
+	// asyncData({ store }) {
+	//   return store.dispatch("getInfo");
+	// },
+	components: {
+		MainContent,
+		Invitation,
+		Tentative,
+		Doa,
+		Countdown,
+		Social,
+		Wishlist,
+		Rsvp,
+		AppFooter: Footer,
+	},
+	computed: {
+		...mapState({
+			showPage: (state) => state.showPage,
+			sectionStatus: (state) => state.info.section_status || {},
+		}),
+	},
+	async created() {
+		let theme = themes.includes(this.$route.query.t)
+			? this.$route.query.t
+			: null;
 
-    this.$store.dispatch("getInfo", {
-      info: data,
-      // lang: data.lang
-      overrideTheme: theme || data.theme,
-    });
-  },
-  methods: {
-    check(s) {
-      return s || s === undefined ? true : false;
-    },
-  },
+		this.$store.dispatch("getInfo", {
+			info: data,
+			// lang: data.lang
+			overrideTheme: theme || data.theme,
+		});
+	},
+	methods: {
+		check(s) {
+			return s || s === undefined ? true : false;
+		},
+	},
 };
 </script>
 
 <style lang="scss">
 @import "~assets/scss/var.scss";
 @import url($font-url);
-html {
-  position: relative;
-  min-height: 100%;
-}
 
-body {
-  margin-bottom: 3rem;
-}
+#wedvite {
+	margin-bottom: 3rem;
+	overflow-x: hidden !important;
 
-.no-select {
-  outline: 0 !important;
-  // border: none !important;
-  box-shadow: none !important;
-  -webkit-touch-callout: none !important;
-  -webkit-user-select: none !important;
-  -khtml-user-select: none !important;
-  -moz-user-select: none !important;
-  -ms-user-select: none !important;
-  user-select: none !important;
-  -webkit-tap-highlight-color: transparent !important;
-}
+	.modal {
+		max-width: 520px;
+	}
 
-.pointer {
-  cursor: pointer !important;
-}
-
-a,
-.button {
-  text-decoration: none !important; /* no underline */
-  box-shadow: none !important;
-  // border: none !important;
-  border-color: unset !important;
-}
-
-.container {
-  width: 100%;
-  max-width: 520px !important;
-  font-family: $primary-font !important;
+  &.container,
+	.container {
+		width: 100%;
+		max-width: 520px !important;
+		font-family: $primary-font !important;
+	}
 }
 
 @media only screen and (min-width: 520px) {
-  #wedvite {
-    border-right: #ddd 1px solid;
-    border-left: #ddd 1px solid;
-  }
+	#wedvite {
+		border-right: #ddd 1px solid;
+		border-left: #ddd 1px solid;
+	}
 }
 </style>

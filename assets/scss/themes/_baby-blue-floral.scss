@@ -29,6 +29,11 @@ $baby-blue-floral-secondary: #363636;
   color: $baby-blue-floral-secondary !important;
 }
 
+.guest.available.baby-blue-floral {
+  background-color: $baby-blue-floral-secondary !important;
+  color: $baby-blue-floral-primary !important;
+}
+
 // Main Section
 .title-baby-blue-floral {
   font-size: 1.3rem;
