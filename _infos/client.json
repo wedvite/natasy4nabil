@@ -80,26 +80,39 @@
     "override_icons_color": true,
     "contacts": [
       {
-        "name": "Fadzil",
-        "rel": "Developer",
-        "tel": 60106505576,
-        "whatsapp": true,
-        "telegram": "fadziljusri"
+        "name": "Zaini",
+        "tel": 601172838407,
+        "whatsapp": true
+      },
+      {
+        "name": "Sida",
+        "tel": 60175203996,
+        "whatsapp": true
+      },
+      {
+        "name": "Shukri",
+        "tel": 60123925751,
+        "whatsapp": true
+      },
+      {
+        "name": "Aini",
+        "tel": 966532280709,
+        "whatsapp": true
       }
     ]
   },
   "ics": {
     "enabled": 1,
-    "subject": "Walimatulurus - Azim & Alia",
+    "subject": "Wedding of - Natasya & Nabil",
     "start": [
-      2080,
-      3,
-      20,
+      2024,
+      8,
       11,
-      30
+      12,
+      0
     ],
     "duration": {
-      "hours": 5
+      "hours": 3
     }
   }
 }
