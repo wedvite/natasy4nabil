@@ -84,3 +84,6 @@ sw.*
 
 info.js
 _clients/
+
+# Local Netlify folder
+.netlify
