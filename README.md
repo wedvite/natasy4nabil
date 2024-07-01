@@ -23,6 +23,7 @@ $ npm run generate
 # deploy netlify - CLI
 $ netlify login
 $ netlify init
+$ npm run generate
 $ netlify build
 $ netlify deploy --prod
 ```

@@ -241,12 +241,7 @@
             </div>
 
             <div
-              class="
-                columns
-                is-mobile
-                has-text-centered has-text-wight-bold
-                is-size-4
-              "
+              class="columns is-mobile has-text-centered has-text-wight-bold is-size-4"
             >
               <div class="column pointer no-select" @click.prevent="cancel()">
                 Cancel
@@ -363,6 +358,11 @@ export default {
   watch: {
     statusModal(val) {
       if (!val) this.showPaxDropdown = false;
+    },
+    "currentGuest.guest"(val) {
+      if (val && !this.rsvp.details.name) {
+        this.rsvp.details.name = val;
+      }
     },
   },
 };

@@ -157,7 +157,7 @@ export default {
   display: flex;
   flex-direction: column;
   font-family: $cover-font;
-  font-size: 4rem;
+  font-size: 5.5rem;
   // margin-bottom: 1rem;
   line-height: 0.9;
   margin: 2.5rem auto;

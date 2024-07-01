@@ -3,14 +3,19 @@
 Default Font 
 */
 @font-face {
+    font-family: 'kissita';
+    src: local('kissita'),
+        url(~assets/fonts/kissita.otf) format('opentype');
+}
+@font-face {
     font-family: 'Omnes';
     src: local('Omnes'),
         url(~assets/fonts/Omnes.ttf) format('truetype');
 }
-$font-url: 'https://fonts.googleapis.com/css?family=Poppins:wght@500|Nothing+You+Could+Do&display=swap';
+$font-url: 'https://fonts.googleapis.com/css?family=Poppins:wght@500&display=swap';
 
-$cover-font: 'Nothing You Could Do';
+$cover-font: 'kissita';
 $primary-font: 'Omnes', sans-serif;
 $secondary-font: 'Poppins', sans-serif;
-$countdown-font: 'Nothing You Could Do';
+$countdown-font: 'kissita';
 // $countdown-font: 'Alex Brush', cursive;

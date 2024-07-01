@@ -57,7 +57,17 @@ export const actions = {
       .onSnapshot(doc => {
         doc = doc.data();
         // console.log("Current data: ", doc);
-        if (doc?.rsvp) commit("SET_RSVP", Object.values(doc.rsvp));
+        if (doc?.rsvp) {
+          commit("SET_RSVP", Object.values(doc.rsvp));
+        } else {
+          fireDb
+            .collection(conf.collection)
+            .doc(conf.doc)
+            .set({
+              rsvp: [],
+              visibility: "public"
+            })
+        }
       });
   },
   setInfo({ commit }, info) {
@@ -79,7 +89,7 @@ export const actions = {
     if (!newRsvp?.id) {
       // New record
       newRsvp.id = makeid();
-    } 
+    }
     // console.log({ newRsvp });
 
     fireDb

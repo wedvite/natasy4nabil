@@ -50,7 +50,7 @@
 					data-aos-duration="1000"
 					v-html="i.groom[i.invitation_section.couple_name_type]"
 				></div>
-				<div data-aos="zoom-in" class="amp">dengan pasangannya</div>
+				<div data-aos="zoom-in" class="amp">&amp;</div>
 				<div
 					:data-aos="
 						i.groom_or_bride_first === 'groom' ? 'fade-left' : 'fade-right'
