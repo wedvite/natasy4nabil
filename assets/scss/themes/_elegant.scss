@@ -1,5 +1,5 @@
-$elegant-primary: #000;
-$elegant-secondary: #FFD700;
+$elegant-primary: #0A2360; // #000080;
+$elegant-secondary: #FFFFFF;
 
 .bg-elegant,
 .bgt-elegant {
@@ -8,7 +8,8 @@ $elegant-secondary: #FFD700;
 }
 
 .bg-image-elegant {
-  background-image: url("~assets/frames/gold.png");
+  background-image: url("~assets/frames/custom/Maria-BG.png");
+  // background-image: url("https://aliveinvitebeta.s3.ap-southeast-1.amazonaws.com/kdwpv7vMZ4M1ZXYPenETkoDE?response-content-disposition=inline%3B%20filename%3D%22Maria-BG.png%22%3B%20filename%2A%3DUTF-8%27%27Maria-BG.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAUR22KYDDP6YHRKP6%2F20240701%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Date=20240701T131449Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=17f48da136985d54b8f65c6bc7311533de096d2781648f0a07352bc85bafee1c");
 }
 
 .bgi-elegant {
@@ -21,8 +22,8 @@ $elegant-secondary: #FFD700;
 }
 
 .guest.available.elegant {
-  background-color: $elegant-secondary !important;
-  color: $elegant-primary !important;
+  color: $elegant-secondary !important;
+  background-color: $elegant-primary !important;
 }
 
 // Main Section

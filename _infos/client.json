@@ -1,81 +1,80 @@
 {
-  "theme": "baby-blue-floral",
+  "theme": "elegant",
   "lang": "ms",
-  "groom_or_bride_first": "groom",
+  "groom_or_bride_first": "bride",
   "groom": {
-    "fullname": "Abdul Azim Bin Azry",
-    "nickname": "Azim"
+    "fullname": "NABIL FAIZ BIN MOHAMAD SHUKRI",
+    "nickname": "Nabil"
   },
   "bride": {
-    "fullname": "Alia Nadira binti Arif Asyraf",
-    "nickname": "Alia"
+    "fullname": "NUR AINATASYA",
+    "nickname": "Natasya"
   },
   "parents": {
-    "name": "Hj Mohd Azry Bin Nazmi",
-    "andWith": "Hidayatul Ain Binti Nik Shafiq"
+    "name": "ROSZAINI BIN SAIMI & NOR YUSIDA BINTI MOHD JUSRI",
+    "andWith": "MOHAMAD SHUKRI BIN ABDUL GHANI & NORAINI BINTI ZAMAT"
   },
   "date": {
     "gregObject": {
-      "month": "Mac",
-      "day": "Sabtu",
-      "date": "20",
-      "time": "11.30AM",
-      "year": "2080"
+      "month": "Ogos",
+      "day": "Ahad",
+      "date": "11",
+      "time": "12 PM",
+      "year": "2024"
     },
-    "greg": "20 Mac 2080",
-    "_hijri": "2 Rejab 1540H"
+    "greg": "11 Ogos 2024",
+    "_hijri": ""
   },
   "time": {
-    "from": "11:30 AM",
-    "to": "4:30 PM"
+    "from": "12 PM",
+    "to": "3 PM"
   },
   "address": {
-    "general": "The Curve",
-    "exact_html": "6, Jalan PJU 7/3, Mutiara Damansara, 47800 Petaling Jaya, Selangor",
-    "map_embed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.7604347779384!2d101.60927851456906!3d3.157741453980817!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc4f2b8a436a75%3A0x4902dbd453b4457c!2sThe+Curve!5e0!3m2!1sen!2smy!4v1550287047910\" width=\"100%\" height=\"200\" frameborder=\"0\" style=\"border:0\" allowfullscreen></iframe>",
-    "gmaps_link": "https://goo.gl/maps/JPcpokCTNy92",
-    "waze_link": "https://www.waze.com/ul?ll=3.15773610%2C101.61146720&navigate=yes&zoom=16"
+    "general": "Refarm, Temoh",
+    "exact_html": "Refarm, Jalan Temoh Kampar, 35350 Temoh, Perak",
+    "map_embed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3978.736068707408!2d101.16634498350884!3d4.271453184621591!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cb1d5118b883d1%3A0x624ee81fde1d05b!2sRefarm!5e0!3m2!1sen!2smy!4v1719837014561!5m2!1sen!2smy\" width=\"100%\" height=\"200\" frameborder=\"0\" style=\"border:0\" allowfullscreen></iframe>",
+    "gmaps_link": "https://maps.app.goo.gl/S1JAtedumhFZM27z9",
+    "waze_link": "https://ul.waze.com/ul?preview_venue_id=66322475.663028139.7308895&navigate=yes&zoom=16"
   },
-  "countdown_end": "2080-03-20 11:30 AM",
-  "main_section": {},
+  "countdown_end": "2024-08-11 12:00 PM",
+  "main_section": {
+    "title": "Wedding of"
+  },
   "invitation_section": {},
   "tentative_section": {
     "title": "Tentatif",
     "style": "col",
     "tentatives": [
       {
-        "time": "11:30 AM",
-        "details": "Majlis Bermula"
+        "time": "12:00 PM",
+        "details": "Ketibaan tetamu jemputan"
       },
       {
         "time": "12:30 PM",
-        "details": "Ketibaan Pengantin"
+        "details": "Perarakan masuk pasangan pengantin"
       },
       {
-        "time": "4:30 PM",
-        "details": "Majlis Berakhir"
+        "time": "12:45 PM",
+        "details": "Bacaan doa & salam restu"
+      },
+      {
+        "time": "1:15 PM",
+        "details": "Makan beradab"
+      },
+      {
+        "time": "1:45 PM",
+        "details": "Sesi bergambar"
       }
     ]
   },
-  "doa_section": {},
+  "doa_section": {
+    "text": "Ya Allah Ya Rahman Ya Rahim, berkatilah majlis perkahwinan ini. Limpahkanlah baraqah dan rahmat kepada kedua mempelai. Kurniakanlah mereka kelak zuriat yang soleh dan solehah. Kekalkanlah jodoh mereka hingga ke jannah,juga sempurnakanlah agama mereka dengan berkat ikatan ini."
+  },
   "social_section": {
-    "ig_tags": "GroomXBride",
+    "ig_tags": "Natasy4Nabil",
     "ig_signature": null,
-    "fb_page": {
-      "title": "Walimatulurus Azim & Alia",
-      "link": "https://www.facebook.com/events/583198235197973/"
-    },
-    "carouselAutoplay": true,
-    "images": [
-      {
-        "src": "./images/sample-1.jpg",
-        "htmlTitle": "Hey sayangku!"
-      },
-      {
-        "src": "./images/sample-2.jpg",
-        "htmlTitle": "Life <span class='has-text-success'>Zzzz</span>"
-      }
-    ]
+    "carouselAutoplay": false,
+    "images": []
   },
   "contact_section": {
     "override_icons_color": true,

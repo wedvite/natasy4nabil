@@ -1,8 +1,8 @@
 
 // Demo
-export const project = "demo";
-export const wishlistDoc = "demo";
-export const projectTitle = "Azim & Alia";
+export const project = "natasy4nabil";
+export const wishlistDoc = "natasy4nabil";
+export const projectTitle = "Natasya & Nabil";
 
 export const allowedEmails = [
   "fadziljusri@gmail.com",
@@ -46,17 +46,17 @@ export const rsvpOptions = [
   { value: 'Tidak Hadir', class: 'is-warning', faIcon: 'frown', hidePax: true },
 ];
 
-export const rsvpMaxPax = 2;
+export const rsvpMaxPax = 10;
 
 export const metaOgImage = [
   // Comment below if needed
-  { property: 'og:image', content: '/images/sample-1.jpg' },
-  { property: 'og:image:secure_url', content: '/images/sample-1.jpg' }
+  // { property: 'og:image', content: '/images/sample-1.jpg' },
+  // { property: 'og:image:secure_url', content: '/images/sample-1.jpg' }
 ]
 
 export const userData = require(`./_infos/client.json`);
 
 export const cfg = {
   name: project,
-  title: "Wedvite - " + projectTitle,
+  title: "Wedding of - " + projectTitle,
 }
